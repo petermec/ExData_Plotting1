@@ -10,13 +10,13 @@ unlink(tijdelijk)
 fulldata <- read.table(file, header=TRUE, sep=";", stringsAsFactors=FALSE, dec=".")
 subsetdata <- fulldata[fulldata$Date %in% c("1/2/2007","2/2/2007") ,]
 
-# take subset of data needed (Global_active_power) for histogram & convert to numeric, assign to 'gapower'
-gapower <- as.numeric(subsetdata$Global_active_power)
+# convert DateTime to timestamp, having this format: 2007-02-01 00:00:00
+subsetdata$DateTime <- as.POSIXct(paste(subsetdata$Date, subsetdata$Time, sep=" "), format="%d/%m/%Y %H:%M:%S")
 
 # set dimensions for png
-png("plot1.png", width=480, height=480)
+png("plot2.png", width=480, height=480)
 
-# draw histogram with needed annotations
-hist(gapower, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
+# plot data with needed annotations
+plot(subsetdata$DateTime, subsetdata$Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)", main="")
 dev.off()
 
