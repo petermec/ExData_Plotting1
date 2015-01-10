@@ -18,15 +18,15 @@ subsetdata$Sub_metering_3 <- as.numeric(as.character(subsetdata$Sub_metering_3))
 # convert DateTime to timestamp, having this format: 2007-02-01 00:00:00
 subsetdata$DateTime <- as.POSIXct(paste(subsetdata$Date, subsetdata$Time, sep=" "), format="%d/%m/%Y %H:%M:%S")
 
-# plot data with needed annotations &colors
-plot(subsetdata$DateTime,subsetdata$Sub_metering_1,  type="l", xlab="", ylab="Energy sub metering")
-lines(subsetdata$DateTime,subsetdata$Sub_metering_2,col="red")
-lines(subsetdata$DateTime,subsetdata$Sub_metering_3,col="blue")
+# open png
+png(filename='plot3.png')
+
+# plot with annotations
+plot(subsetdata$DateTime,subsetdata$Sub_metering_1, type='l', xlab='', ylab='Energy sub metering')
+lines(subsetdata$DateTime,subsetdata$Sub_metering_2, col='red')
+lines(subsetdata$DateTime,subsetdata$Sub_metering_3, col='blue')
 
 # add legend
-legend("topright", col=c("black","red","blue"), c("Sub_metering_1  ","Sub_metering_2  ", "Sub_metering_3  "))
+legend('topright', legend=c('Sub_metering_1', 'Sub_metering_2', 'Sub_metering_3'),col=c('black', 'red', 'blue'))
 
-# copy to png with correct dimensions
-dev.copy(png, file="plot3.png", width=480, height=480)
 dev.off()
-
