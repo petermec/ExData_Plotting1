@@ -27,6 +27,6 @@ lines(subsetdata$DateTime,subsetdata$Sub_metering_2, col='red')
 lines(subsetdata$DateTime,subsetdata$Sub_metering_3, col='blue')
 
 # add legend
-legend('topright', legend=c('Sub_metering_1', 'Sub_metering_2', 'Sub_metering_3'),col=c('black', 'red', 'blue'))
+legend('topright', legend=c('Sub_metering_1', 'Sub_metering_2', 'Sub_metering_3'),col=c('black', 'red', 'blue'),lty='solid')
 
 dev.off()

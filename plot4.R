@@ -36,7 +36,7 @@ plot(subsetdata$DateTime,subsetdata$Sub_metering_1, type='l', xlab='', ylab='Ene
 lines(subsetdata$DateTime,subsetdata$Sub_metering_2, col='red')
 lines(subsetdata$DateTime,subsetdata$Sub_metering_3, col='blue')
 # add legend
-legend('topright', legend=c('Sub_metering_1', 'Sub_metering_2', 'Sub_metering_3'),col=c('black', 'red', 'blue'))
+legend('topright', legend=c('Sub_metering_1', 'Sub_metering_2', 'Sub_metering_3'),col=c('black', 'red', 'blue'), lty='solid')
 
 # 4 - bottom right
 plot(subsetdata$DateTime,subsetdata$Global_reactive_power, type="l", xlab="datetime", ylab="Global_reactive_power")
